@@ -34,7 +34,7 @@ public class AlertDialog extends AnchorPane {
 			newAlertDialog = new Stage(StageStyle.DECORATED);
 			newAlertDialog.setResizable(false);
 			wiAlertDialog = new AlertDialog(message, title);
-			newAlertDialog.setTitle("提示");
+			newAlertDialog.setTitle("Prompt");
 			newAlertDialog.setScene(new Scene(wiAlertDialog));
 			newAlertDialog.show();
 	}
