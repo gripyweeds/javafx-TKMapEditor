@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.shape.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <TextArea editable="false" prefHeight="364.0" prefWidth="600.0" text="Software version&#10;WiTKMapEditor V0.7.6.2015.2.16&#10;&#10;Function list&#10;1.Open the map file&#10;2.Save the map file&#10;3.New，Delete，Move up，Move down the layer，As well as the transparency of the editing layer and whether it can be displayed&#10;4.Edit the map，There is a brush，Paint bucket，Eraser and other functions&#10;5.Multi-block drawing&#10;6.Export the map aspngImage&#10;7.Map zoom display，You can scale the map&#10;8.The cell property is added&#10;&#10;Update log&#10;Release date 2015/2/16&#10;1.Fixed a problem with the preservation of the map&#10;2.Add recently used files to include open and saved files&#10;&#10;Release date 2015/2/13&#10;1.Fixed the path containing the Chinese，Record the most recent open file error&#10;2.Added a menu item that displays the properties grid&#10;&#10;Release date 2015/2/5&#10;Update content:&#10;1.Add the menu that recently opened the file，You can record recently opened files。&#10;&#10;Release date 2015/2/4&#10;Update content:&#10;1.Full support for the ability to add attributes to a cell，A checkbox with attribute records is represented by purple&#10;2.The map zoom ratio is changed between 0 and 2，Due to excessive map efficiency problems，Need to ment consider&#10;3.Add the size of the current map zoom scale&#10;&#10;Release date 2014/11/20&#10;Update content:&#10;1.Multi-block drawing&#10;2.Export the map as a png image&#10;3.Map zoom display，You can scale the map&#10;&#10;Release date 2014/10/24&#10;Update content:&#10;1.Edit the transparency of the layer and whether it can be displayed&#10;2.Eraser function&#10;&#10;Release date 2014/9/10&#10;Update content:&#10;1.Open the map file&#10;2.Save the map file&#10;3.New，Delete，Move up，Move down the layer&#10;4.Edit the map，There is a brush，Paint bucket&#10;&#10;Later version&#10;An available version has been completed，JavaFX and Unity3D have been completed，In the previous version of the display and read.&#10;&#10;Author information&#10;Wing Mei&#10;CSDN blog:http://blog.csdn.net/wingfourever&#10;Personal blog:http://www.wjfxgame.com&#10;&#10;&#10;&#10;" />
+      <Label layoutX="483.0" layoutY="371.0" prefHeight="15.0" prefWidth="148.0" text="\@2015 Wing Mei" />
+   </children>
+</fx:root>
