@@ -64,7 +64,7 @@ public class TiledMapLayer {
 
 	public void ConvertFromString(String str) {
 		String[] data = str.split("T");
-		System.out.println("Data的长度:" + data.length);
+		System.out.println("Data Length:" + data.length);
 		int mapWidth = TiledMap.getInstance().getMapWidth();
 		int mapHeight = TiledMap.getInstance().getMapHeight();
 		if (mapTiles == null) {
