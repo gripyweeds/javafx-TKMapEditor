@@ -134,13 +134,13 @@ public class MainLayoutController implements Initializable {
 	private NewMapDialog newMapDialog;
 
 	private SAXReader saxReader = new SAXReader();
-	// 打开地图是否报错
+	// Open the map is wrong
 	private boolean isReadError = false;
-	// 是否打开或者新建地图
+	// Whether to open or create a new map
 	private boolean isNewOrOpenMap = false;
-	// 读取地图返回的信息
+	// Read the information returned by the map
 	private List<String> readMsgs = new ArrayList<>();
-	// 绘制线程休眠时间
+	// Draw thread sleep time
 	private long threadSleep = 50;
 
 	private File openMapFile;
@@ -177,12 +177,12 @@ public class MainLayoutController implements Initializable {
 	public void initialize(URL location, ResourceBundle resources) {
 		TiledMap.getInstance().setMapProperty(64, 64, 13, 7);
 
-		// 文件选择器
+		// file selector
 		fileChooser = new FileChooser();
 		fileChooser.getExtensionFilters().add(new ExtensionFilter("图片文件", "*.jpg", "*.png", "*.bmp"));
 		altasCanvas = new AltasCanvas(altasCanvasScrollPane.getWidth(), altasCanvasScrollPane.getHeight());
 		altasCanvas.BrushTypeProperty().bind(brushTypeProperty);
-		// 打开地图
+		// Open the map
 		openMapChooser = new FileChooser();
 		openMapChooser.getExtensionFilters().add(new ExtensionFilter("地图文件", "*.xml"));
 
@@ -192,12 +192,12 @@ public class MainLayoutController implements Initializable {
 		exportFileChooser = new FileChooser();
 		exportFileChooser.getExtensionFilters().add(new ExtensionFilter("图片文件", "*.png"));
 
-		// 贴图集绘制
+		// Artwork drawing
 		altasCanvas.widthProperty().bind(altasCanvasScrollPane.widthProperty());
 		altasCanvas.heightProperty().bind(altasCanvasScrollPane.heightProperty());
 		altasCanvasScrollPane.setContent(altasCanvas);
 
-		// 地图绘制
+		// Map drawing
 		mapCanvas = new MapCanvas(TiledMap.getInstance().getMapWidth(), TiledMap.getInstance().getMapHeight());
 		mapCanvas.NowSelectLayerProperty().bind(layerListView.getSelectionModel().selectedIndexProperty());
 		mapCanvas.BrushTypeProperty().bind(brushTypeProperty);
@@ -220,7 +220,7 @@ public class MainLayoutController implements Initializable {
 		mapScrollPane.setContent(mapCanvas);
 		drawThread.start();
 
-		// 图层列表
+		// Layer list
 		layerListView.setItems(layerList);
 		layerListView.setEditable(true);
 		layerListView.setCellFactory(TextFieldListCell.forListView());
@@ -245,7 +245,7 @@ public class MainLayoutController implements Initializable {
 				}
 			}
 		});
-		// 图层alpha值的修改
+		// Modify the alpha value of the layer
 		layerAlphaSlider.valueProperty().addListener(new ChangeListener<Number>() {
 			@Override
 			public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
@@ -279,7 +279,7 @@ public class MainLayoutController implements Initializable {
 			}
 		});
 
-		// 贴图集列表
+		// The list of stickers
 		altasListView.setItems(imagePathList);
 		altasListView.setCellFactory(new Callback<ListView<String>, ListCell<String>>() {
 			@Override
@@ -303,7 +303,7 @@ public class MainLayoutController implements Initializable {
 		});
 		nowSelectAltasIdProperty.bind(altasListView.getSelectionModel().selectedItemProperty());
 
-		// 对话框
+		// Dialog box
 		newMapDialog = new NewMapDialog();
 		newMapDialog.setOnNewMapDialogActionListener(new OnNewMapDialogActionListener() {
 
@@ -312,7 +312,7 @@ public class MainLayoutController implements Initializable {
 				clearAll();
 				newOrOpenMap();
 				openMapFile = null;
-				// 设置地图画布大小
+				// Set the map canvas size
 				mapCanvas.setWidth(TiledMap.getInstance().getRealTileMapWidth());
 				mapCanvas.setHeight(TiledMap.getInstance().getRealTileMapHeight());
 				mapSizeLabel.setText(TiledMap.getInstance().getMapWidth() + " x "
@@ -325,7 +325,7 @@ public class MainLayoutController implements Initializable {
 			}
 		});
 
-		// 菜单
+		// Menu
 		ToggleGroup tGroup = new ToggleGroup();
 		normalBrushItem.setToggleGroup(tGroup);
 		paintPailItem.setToggleGroup(tGroup);
@@ -335,7 +335,7 @@ public class MainLayoutController implements Initializable {
 		mapCanvas.ShowGridProperty().bind(showMapGridItem.selectedProperty());
 		altasCanvas.ShowGridProperty().bind(showAltasGridItem.selectedProperty());
 		mapCanvas.ShowProProperty().bind(showPropertyGridItem.selectedProperty());
-		// 读取最近打开的文件
+		// Read the most recently opened file
 		initRecentFiles();
 	}
 
@@ -349,7 +349,7 @@ public class MainLayoutController implements Initializable {
 			    if(file.exists()){
 				readMapWithAlert(new File(path));
 			    } else {
-			    	AlertDialog.showAlertDialog("地图文件不存在");
+			    	AlertDialog.showAlertDialog("The map file does not exist");
 			    	mRecentMenu.getItems().remove(this);
 			    	removeRecentFile(file);
 			    }
@@ -376,7 +376,7 @@ public class MainLayoutController implements Initializable {
 	}
 
 	/**
-	 * 清空地图
+	 * Empty the map
 	 */
 	private void clearAll() {
 		tiledMapLayerList.clear();
@@ -385,12 +385,12 @@ public class MainLayoutController implements Initializable {
 		altasCanvas.setImage(null);
 		layerList.clear();
 		readMsgs.clear();
-		// 读取地图时清除属性列表
+		// Clear the property list when reading the map
 		TiledMap.getInstance().getPropertyList().clear();
 	}
 
 	/**
-	 * 新建或者打开地图 的UI变化
+	 * Create or open a map UI changes
 	 */
 	private void newOrOpenMap() {
 		isNewOrOpenMap = true;
@@ -400,13 +400,13 @@ public class MainLayoutController implements Initializable {
 	}
 
 	/**
-	 * 读取地图
+	 * Read the map
 	 * 
 	 * @param file
-	 *            地图文件
+	 *            Map file
 	 */
 	private void readMap(File file) {
-		// 清空所有资源
+		// Clear all resources
 		clearAll();
 		isReadError = false;
 		try {
@@ -415,20 +415,20 @@ public class MainLayoutController implements Initializable {
 			for (Iterator<Element> i = rootElement.elementIterator(); i.hasNext();) {
 				Element e = i.next();
 				if (e.getName().equals(XMLElements.ELEMENT_MAP_SETTING)) {
-					// 读取地图信息
+					// Read the map information
 					int mapWidth = Integer.parseInt(e.elementText(XMLElements.ELEMENT_MAP_WIDTH));
 					int mapHeight = Integer.parseInt(e.elementText(XMLElements.ELEMENT_MAP_HEIGHT));
 					int tileWidth = Integer.parseInt(e.elementText(XMLElements.ELEMENT_TILE_WIDTH));
 					int tileHeight = Integer.parseInt(e.elementText(XMLElements.ELEMENT_TILE_HEIGHT));
 					TiledMap.getInstance().setMapProperty(tileWidth, tileHeight, mapWidth, mapHeight);
-					// 设置地图画布大小
+					// Set the map canvas size
 					mapCanvas.setWidth(tileWidth * mapWidth);
 					mapCanvas.setHeight(tileHeight * mapHeight);
 					mapSizeLabel.setText(TiledMap.getInstance().getMapWidth() + " x "
 							+ TiledMap.getInstance().getMapHeight());
-					readMsgs.add("读取地图设置成功");
+					readMsgs.add("Read map settings are successful");
 				} else if (e.getName().equals(XMLElements.ELEMENT_MAP_RESOURCE)) {
-					// 读取地图资源,并添加到资源管理中
+					// Read the map resource,And added to the resource management
 					AltasResourceManager.getInstance().removeAll();
 					for (Iterator<Element> j = e.elementIterator(); j.hasNext();) {
 						Element ej = j.next();
@@ -437,21 +437,21 @@ public class MainLayoutController implements Initializable {
 						String fileName = altasPath.substring(altasPath.lastIndexOf("\\") + 1);
 						try {
 							addImageAtlas(altasID, altasPath);
-							readMsgs.add("读取贴图" + fileName + "成功");
+							readMsgs.add("Read the map " + fileName + " Success");
 						} catch (FileNotFoundException e1) {
 							e1.printStackTrace();
 							isReadError = true;
-							readMsgs.add("贴图" + fileName + "未找到");
+							readMsgs.add("Map " + fileName + " Not found");
 						}
 					}
-					// 添加到资源列表
+					// Add to the resource list
 					List<AltasResource> alResources = AltasResourceManager.getInstance().getResources();
 					for (AltasResource resource : alResources) {
 						imagePathList.add(resource.getAltasId());
 					}
 
 				} else if (e.getName().equals(XMLElements.ELEMENT_MAP_DATA)) {
-					// 读取图层数据，并转化为地图数据
+					// Read the layer data，And converted into map data
 					for (Iterator<Element> j = e.elementIterator(); j.hasNext();) {
 						TiledMapLayer tiledMapLayer = new TiledMapLayer();
 						Element ej = j.next();
@@ -469,12 +469,12 @@ public class MainLayoutController implements Initializable {
 							tiledMapLayer.setCollider(Boolean.parseBoolean(colliderStr));
 						tiledMapLayer.ConvertFromString(mapData);
 						layerList.add(layerName);
-						// 读取的图层添加到列表中
+						// Read the layers added to the list
 						tiledMapLayerList.add(tiledMapLayer);
-						readMsgs.add("读取图层\"" + layerName + "\"成功");
+						readMsgs.add("Read the layer\"" + layerName + "\"Success");
 					}
 				} else if (e.getName().equals(XMLElements.ELEMENT_MAP_PROPERTY)) {
-					// 读取图层数据，并转化为地图数据
+					// Read the layer data，And converted into map data
 					for (Iterator<Element> j = e.elementIterator(); j.hasNext();) {
 						TileProperty tileProperty = new TileProperty();
 						Element ej = j.next();
@@ -491,13 +491,13 @@ public class MainLayoutController implements Initializable {
 						}
 						TiledMap.getInstance().getPropertyList().add(tileProperty);
 					}
-					readMsgs.add("读取地图属性列表成功");
+					readMsgs.add("Read the map property list successfully");
 				}
 			}
 		} catch (DocumentException e) {
 			e.printStackTrace();
 			isReadError = true;
-			readMsgs.add("地图文件读取出错" + e.getMessage());
+			readMsgs.add("The map file is reading incorrectly " + e.getMessage());
 		}
 		addRecentFile(file);
 	}
@@ -506,9 +506,9 @@ public class MainLayoutController implements Initializable {
 		readMap(mapFile);
 		String str = "";
 		if (!isReadError) {
-			str = "读取地图完成:";
+			str = "Read the map is complete:";
 		} else {
-			str = "读取地图过程中出错:";
+			str = "An error occurred while reading the map:";
 		}
 		StringBuilder sb = new StringBuilder();
 		sb.append(str + System.getProperty("line.separator"));
@@ -563,18 +563,18 @@ public class MainLayoutController implements Initializable {
 			WritableImage image = mapCanvas.snapshot(new SnapshotParameters(), null);
 			try {
 				ImageIO.write(SwingFXUtils.fromFXImage(image, null), "png", file);
-				AlertDialog.showAlertDialog("保存成功!");
+				AlertDialog.showAlertDialog("Saved successfully!");
 			} catch (IOException ex) {
-				AlertDialog.showAlertDialog("保存失败:" + ex.getMessage());
+				AlertDialog.showAlertDialog("Save failed:" + ex.getMessage());
 			}
 		}
 	}
 
 	/**
-	 * 将地图保存到文件
+	 * Save the map to a file
 	 * 
 	 * @param file
-	 *            地图文件
+	 *            Map file
 	 */
 	private void saveMapToFile(File file) {
 		//OutputFormat format = OutputFormat.createPrettyPrint();
@@ -585,10 +585,10 @@ public class MainLayoutController implements Initializable {
 			writer = new XMLWriter(new FileOutputStream(file));//new FileWriter(file), format);
 			writer.write(map);
 			writer.close();
-			AlertDialog.showAlertDialog("保存地图完成!");
+			AlertDialog.showAlertDialog("Save the map to complete!");
 		} catch (IOException e1) {
 			e1.printStackTrace();
-			AlertDialog.showAlertDialog("保存地图出错:" + e1.getMessage());
+			AlertDialog.showAlertDialog("Save map error:" + e1.getMessage());
 		}
 	}
 
@@ -598,7 +598,7 @@ public class MainLayoutController implements Initializable {
 	}
 
 	/*
-	 * 创建保存的地图数据
+	 * Create saved map data
 	 */
 	private Document createSaveDocument() {
 		Document document = DocumentHelper.createDocument();
@@ -618,7 +618,7 @@ public class MainLayoutController implements Initializable {
 		Element tileHeight = mapSetting.addElement(XMLElements.ELEMENT_TILE_HEIGHT);
 		tileHeight.setText(TiledMap.getInstance().getTileHeight() + "");
 
-		// 写入资源列表
+		// Write a list of resources
 		Element mapResource = map.addElement(XMLElements.ELEMENT_MAP_RESOURCE);
 		List<AltasResource> resources = AltasResourceManager.getInstance().getResources();
 		for (int i = 0; i < resources.size(); i++) {
@@ -699,7 +699,7 @@ public class MainLayoutController implements Initializable {
 
 	@FXML
 	public void onAddNewLayerAction(ActionEvent e) {
-		String defaultName = "新建图层";
+		String defaultName = "Create a new layer";
 		layerList.add(defaultName);
 		TiledMapLayer tiledMapLayer = new TiledMapLayer();
 		tiledMapLayer.setLayerName(defaultName);
