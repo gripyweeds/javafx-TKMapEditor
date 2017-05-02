@@ -15,7 +15,7 @@ import org.dom4j.io.OutputFormat;
 import org.dom4j.io.SAXReader;
 import org.dom4j.io.XMLWriter;
 /**
- * 配置文件
+ * Configuration file
  * @author Wing Mei
  *
  */
@@ -36,7 +36,7 @@ public class Config {
     }
     
 	/*
-	 * 保存配置文件
+	 * Save the configuration file
 	 */
 	public void saveConfig() {
 		File file = new File(ConfigName);
@@ -60,7 +60,7 @@ public class Config {
 	}
 	
 	/*
-	 * 读取配置文件
+	 * Read the configuration file
 	 */
 	public void readConfig(){
 		File file = new File(ConfigName);
