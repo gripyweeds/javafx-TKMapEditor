@@ -71,19 +71,19 @@ public class MapCanvas extends Canvas {
 
 			@Override
 			public void onOkDialogAction(ObservableList<PropertyData> propertyDatas) {
-				// 获取指定行列的属性
+				// Gets the properties of the specified row
 				TileProperty nowProperty = TiledMap.getInstance().getProperty(nowPropertyCols, nowPropertyRows);
 				if (propertyDatas.size() > 0) {
-					// 如果没有则创建一个
+					// If not, create one
 					if (nowProperty == null) {
 						nowProperty = new TileProperty();
 						nowProperty.setRow(nowPropertyRows);
 						nowProperty.setCol(nowPropertyCols);
 						TiledMap.getInstance().getPropertyList().add(nowProperty);
 					}
-					// 清空属性
+					// Empty attribute
 					nowProperty.getValueMap().clear();
-					// 将键值对属性存入
+					// The key value is stored in the attribute
 					for (PropertyData data : propertyDatas) {
 						nowProperty.insertValue(data.getKey(), data.getValue());
 					}
@@ -95,11 +95,11 @@ public class MapCanvas extends Canvas {
 			@Override
 			public void onInit(ObservableList<PropertyData> propertyDatas, TitledPane mTitledPane) {
 				System.out.println(nowPropertyCols + "," + nowPropertyRows);
-				// 获取指定行列的属性
+				// Gets the properties of the specified row
 				TileProperty nowProperty = TiledMap.getInstance().getProperty(nowPropertyCols, nowPropertyRows);
 				propertyDatas.clear();
-				mTitledPane.setText("属性列表:" + nowPropertyCols + "," + nowPropertyRows);
-				// 如果没有则创建一个
+				mTitledPane.setText("Attribute list:" + nowPropertyCols + "," + nowPropertyRows);
+				// If not, create one
 				if (nowProperty != null) {
 					Iterator<String> iterator = nowProperty.getValueMap().keySet().iterator();
 					while (iterator.hasNext()) {
@@ -111,7 +111,7 @@ public class MapCanvas extends Canvas {
 			}
 		});
 		final ContextMenu contextMenu = new ContextMenu();
-		MenuItem propertyItem = new MenuItem("属性");
+		MenuItem propertyItem = new MenuItem("Attributes");
 		propertyItem.setOnAction(e -> {
 			mPropertyDialog.showDialog();
 		});
@@ -255,7 +255,7 @@ public class MapCanvas extends Canvas {
 		TiledMap tiledMap = TiledMap.getInstance();
 		tileWidth = tiledMap.getTileWidth();
 		tileHeight = tiledMap.getTileHeight();
-		// 绘制多图层地图
+		// Draw a multi-layer map
 		int length = mapLayerList.size();
 		if (length > 0) {
 			for (int i = length - 1; i >= 0; i--) {
@@ -300,7 +300,7 @@ public class MapCanvas extends Canvas {
 				}
 			}
 			if (isShowGrid()) {
-				// 绘制网格
+				// Draw the grid
 				gContext2D.setGlobalAlpha(1.0f);
 				gContext2D.setLineWidth(0.5f);
 				for (int i = 0; i < tiledMap.getMapWidth(); i++) {
@@ -313,7 +313,7 @@ public class MapCanvas extends Canvas {
 			if (isDrawAltasList) {
 				int cols = (int) (mouseX / (tileWidth * getScale()));
 				int rows = (int) (mouseY / (tileHeight * getScale()));
-				// 绘制受影响的网格
+				// Draw the affected grid
 				gContext2D.setGlobalAlpha(0.6f);
 				if (nowChooseProperty.getSize() != 0) {
 					for (int i = 0; i < nowChooseProperty.getSize(); i++) {
@@ -337,7 +337,7 @@ public class MapCanvas extends Canvas {
 								* getScale(), tileHeight * getScale());
 					}
 				}
-				// 绘制要填充的贴图
+				// Draw the map to be filled
 				gContext2D.setGlobalAlpha(0.8f);
 				for (int i = 0; i < nowChooseProperty.getSize(); i++) {
 					int index = nowChooseProperty.get(i);
@@ -358,7 +358,7 @@ public class MapCanvas extends Canvas {
 				}
 			}
 
-			// 绘制属性网格
+			// Draw the property grid
 			if (isShowProperty()) {
 				ArrayList<TileProperty> propertyList = tiledMap.getPropertyList();
 				if (propertyList.size() > 0) {
