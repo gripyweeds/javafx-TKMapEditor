@@ -6,7 +6,7 @@ import java.util.UUID;
 
 import javafx.scene.image.Image;
 /**
- * 贴图集资源管理
+ * Map set resource management
  * @author Wing Mei
  */
 public class AltasResourceManager {
