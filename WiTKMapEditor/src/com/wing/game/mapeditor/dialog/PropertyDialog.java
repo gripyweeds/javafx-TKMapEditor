@@ -46,7 +46,7 @@ public class PropertyDialog extends AnchorPane {
 			propertyDialog = new Stage(StageStyle.TRANSPARENT);
 			propertyDialog.setResizable(false);
 			propertyDialog.setScene(new Scene(this));
-			TableColumn<PropertyData, String> keyColumn = new TableColumn<>("键");
+			TableColumn<PropertyData, String> keyColumn = new TableColumn<>("Key");
 			keyColumn.setMinWidth(164);
 			keyColumn.setMaxWidth(164);
 			keyColumn.setCellValueFactory(new PropertyValueFactory<>("key"));
@@ -59,7 +59,7 @@ public class PropertyDialog extends AnchorPane {
 							.setKey(event.getNewValue());
 				}
 			});
-			TableColumn<PropertyData, String> valueColumn = new TableColumn<>("值");
+			TableColumn<PropertyData, String> valueColumn = new TableColumn<>("Value");
 			valueColumn.setMinWidth(164);
 			valueColumn.setMaxWidth(164);
 			valueColumn.setCellValueFactory(new PropertyValueFactory<>("value"));
