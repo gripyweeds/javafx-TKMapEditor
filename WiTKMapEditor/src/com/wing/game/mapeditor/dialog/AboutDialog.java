@@ -31,7 +31,7 @@ public class AboutDialog extends AnchorPane {
 			newAlertDialog = new Stage(StageStyle.DECORATED);
 			newAlertDialog.setResizable(false);
 			wiAlertDialog = new AboutDialog();
-			newAlertDialog.setTitle("关于");
+			newAlertDialog.setTitle("On");
 			newAlertDialog.getIcons().add(new Image(Main.class.getResourceAsStream("icon.png")));
 			newAlertDialog.setScene(new Scene(wiAlertDialog, 600, 400));
 			newAlertDialog.show();
