@@ -3,7 +3,7 @@ package com.wing.game.mapeditor.property;
 import java.util.ArrayList;
 
 /**
- * 地图属性
+ * Map attribute
  * @author Wing Mei
  */
 public class TiledMap {
@@ -71,10 +71,10 @@ public class TiledMap {
 		return propertyList;
 	}
 	
-	// 获取指定行列的属性
+	// Gets the properties of the specified row
 	public TileProperty getProperty(int col,int row){
 		TileProperty nowProperty = null;
-		//查找指定行列的单元格的属性
+		//Finds the properties of the cells of the specified row and column
 		for(TileProperty tileProperty : propertyList){
 			if(tileProperty.getRow() == row && tileProperty.getCol() == col){
 				nowProperty = tileProperty;
