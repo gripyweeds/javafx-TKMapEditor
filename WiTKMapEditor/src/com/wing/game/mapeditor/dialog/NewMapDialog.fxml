@@ -8,7 +8,7 @@
 
 <fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="267.0" prefWidth="334.0" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <TitledPane animated="false" collapsible="false" prefHeight="267.0" prefWidth="334.0" text="新建地图">
+      <TitledPane animated="false" collapsible="false" prefHeight="267.0" prefWidth="334.0" text="Create a new map">
          <font>
             <Font name="Microsoft YaHei Bold" size="17.0" />
          </font>
@@ -26,22 +26,22 @@
                   <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="BASELINE" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Label prefHeight="26.0" prefWidth="75.0" text="地图宽度:" GridPane.halignment="CENTER">
+                  <Label prefHeight="26.0" prefWidth="75.0" text="Map width:" GridPane.halignment="CENTER">
                      <font>
                         <Font size="15.0" />
                      </font>
                   </Label>
-                  <Label prefHeight="27.0" prefWidth="77.0" text="地图高度:" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+                  <Label prefHeight="27.0" prefWidth="77.0" text="Map height:" GridPane.halignment="CENTER" GridPane.rowIndex="1">
                      <font>
                         <Font size="15.0" />
                      </font>
                   </Label>
-                  <Label prefHeight="27.0" prefWidth="87.0" text="单元格宽度:" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+                  <Label prefHeight="27.0" prefWidth="87.0" text="Cell width:" GridPane.halignment="CENTER" GridPane.rowIndex="2">
                      <font>
                         <Font size="15.0" />
                      </font>
                   </Label>
-                  <Label prefHeight="27.0" prefWidth="89.0" text="单元格高度:" GridPane.halignment="CENTER" GridPane.rowIndex="3">
+                  <Label prefHeight="27.0" prefWidth="89.0" text="Cell height:" GridPane.halignment="CENTER" GridPane.rowIndex="3">
                      <font>
                         <Font size="15.0" />
                      </font>
@@ -66,7 +66,7 @@
                         <Insets right="30.0" />
                      </GridPane.margin>
                   </TextField>
-                  <Button mnemonicParsing="false" onAction="#onNewMapAction" prefHeight="30.0" prefWidth="91.0" text="新建" GridPane.halignment="RIGHT" GridPane.rowIndex="4" GridPane.valignment="CENTER">
+                  <Button mnemonicParsing="false" onAction="#onNewMapAction" prefHeight="30.0" prefWidth="91.0" text="New" GridPane.halignment="RIGHT" GridPane.rowIndex="4" GridPane.valignment="CENTER">
                      <font>
                         <Font size="15.0" />
                      </font>
@@ -74,7 +74,7 @@
                         <Insets right="5.0" />
                      </GridPane.margin>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#onNewMapCancelAction" prefHeight="30.0" prefWidth="93.0" text="取消" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="4" GridPane.valignment="CENTER">
+                  <Button mnemonicParsing="false" onAction="#onNewMapCancelAction" prefHeight="30.0" prefWidth="93.0" text="Cancel" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="4" GridPane.valignment="CENTER">
                      <font>
                         <Font size="15.0" />
                      </font>
